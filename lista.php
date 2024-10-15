@@ -1,7 +1,11 @@
 <?php
 include 'db.php';
 
-$sql = 'SELECT 
+$limit = 5; // liczba wierszy do pobrania
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 0; // aktualna strona
+$offset = $page * $limit; // oblicz offset
+
+$sql = "SELECT 
             wiadomosci.id, 
             wiadomosci.imie, 
             wiadomosci.nazwisko, 
@@ -13,7 +17,8 @@ $sql = 'SELECT
         LEFT JOIN 
             zdjecia ON wiadomosci.id = zdjecia.idWiadomosci 
         ORDER BY 
-            wiadomosci.id ASC';
+            wiadomosci.id ASC 
+        LIMIT $limit OFFSET $offset";
 
 $result = $conn->query($sql);
 
@@ -25,8 +30,7 @@ if ($result && $result->num_rows > 0) {
     }
     echo json_encode($responses);
 } else {
-    $response['error'] = "Brak wyników.";
-    echo json_encode($response);
+    echo json_encode([]);
 }
 
 $conn->close();

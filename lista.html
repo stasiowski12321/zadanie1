@@ -27,17 +27,34 @@
         th {
             background-color: #f2f2f2;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         tr:hover {
             transform: scale(1.02);
             background-color: #ccc;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         img {
             width: 30px;
             height: 30px;
+        }
+        #dodajKolejne {
+            background-color: gray;
+            color: white;
+            padding: 10px 20px;
+            border: 1px solid red; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px;
+            transition: background-color 0.3s; 
+            margin: 10px;
+        }
+
+        #dodajKolejne:hover {
+            background-color: #ff0000; 
         }
     </style>
 </head>
@@ -56,5 +73,6 @@
         <tbody id="table-body">
         </tbody>
     </table>
+    <button id="dodajKolejne">Załaduj kolejne 5 wierszy</button>
 </body>
 </html>
