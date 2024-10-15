@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="javascript.js"></script>
+    <title>Rejestracja</title>
+</head>
+<body id="registerBody">
+    <div id="regContainer">
+        <div id="regLewy">
+            <button class="regZaloguj" id="zaloguj">Zaloguj</button>
+        </div>
+        <div id="regPrawy">
+            <div class="rejestr">
+                <h2 id="regH">Rejestracja</h2>
+                <form id="regMyForm" action="register.php" method="post">
+                    <input type="text" placeholder="Nazwa użytkownika" id="register-login" name="login"  autocomplete="off" required />
+                    <input type="email" placeholder="JanKowalski@gmail.com" id="register-email" name="email"  autocomplete="off" required>
+                    <input type="password" placeholder="Hasło" id="register-password" name="password"  autocomplete="off" required />
+                    <input type="password" placeholder="Powtorz Hasło" id="register-password-password" name="password-password"  autocomplete="off" required />
+                    <button type="submit" id="register-submit" class="regRegister">Zarejestruj się</button>
+                </form>
+                <div id="register-error-container"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var btn = document.getElementById('zaloguj').onclick = function () {
+        location.href = "login.html";
+    }
+</script>

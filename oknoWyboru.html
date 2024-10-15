@@ -1,0 +1,27 @@
+<html lang="PL-pl">
+<head>
+    <meta charset="UTF-8">
+    <title>OknoWyboru</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="OknoWyboru">
+    <div id="OWkontener">
+        <div id="OWlewy">
+            <button id="logowanie" class="OWlogowanie">Zaloguj się</button>
+        </div>
+
+        <div id="OWprawy">
+            <button id="rejestracja" class="OWregister">Zarejestrój się</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.getElementById("rejestracja").onclick = function (){
+        location.href = "register.html";
+    }
+    document.getElementById('logowanie').onclick = function () {
+        location.href = "login.html";
+    }
+</script>

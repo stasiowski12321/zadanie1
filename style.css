@@ -1,0 +1,313 @@
+    /* Styl do pliku OknoWyboru.html */
+#oknoWyboru{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; 
+}
+#OWkontener{
+    display: flex;
+    padding: 20px;
+    border: 1px solid red; 
+    border-radius: 10px; 
+    background-color: rgba(50, 50, 50, 0.8); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
+}
+#OWlewy,#OKprawy{
+    margin: 0 10px; 
+}
+.OWlogowanie,.OWregister{
+    background-color: black;
+    color: red;
+    font-weight: bold;
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+.OWlogowanie:hover,.OWregister:hover{
+    background-color: red; 
+    color: black; 
+    transform: scale(1.05);
+}
+
+/* Styl do pliku register.html */
+#registerBody{
+    background-color: black;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+}
+#regContainer{
+    display: flex;
+    width: 100%;
+}
+#regLewy{
+    background-color: black;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; 
+}
+#regPrawy{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+.rejestr{
+    background-color: rgba(27, 27, 27, 0.8); 
+    width: 50%;
+    height: 60%;
+    border-radius: 10px;
+    color: red;
+    text-align: center;
+    border-bottom: 10px solid red;
+}
+#regH{
+    margin: 10px;
+    padding-top: 10px;
+    text-align: center;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: black;
+    position: relative;
+    left: 25%;
+    right: 25%;
+}
+.regZaloguj,.regRegister{
+    background-color: black;
+    color: red;
+    font-weight: bold;
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+.regZaloguj:hover,.regRegister:hover{
+    background-color: red; 
+    color: black; 
+    transform: scale(1.05); 
+}
+.rejestr input{
+    margin: 10px 0;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    width: 95%; 
+    box-sizing: border-box;
+    background-color: rgba(50, 50, 50, 0.8);
+    color: red;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid red;
+}
+/* Styl do pliku login.html */
+#loginBody{
+    background-color: black;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+}
+#logContainer{
+    display: flex;
+    width: 100%;
+}
+#logLewy{
+    background-color: black;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+#logPrawy{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+#logRejestr{
+    background-color: rgba(27, 27, 27, 0.8); 
+    width: 50%;
+    height: 60%;
+    border-radius: 10px;
+    color: red;
+    text-align: center;
+    border-bottom: 10px solid red;
+}
+#logRejestr h2{
+    margin: 10px;
+    padding-top: 10px;
+    text-align: center;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: black;
+    position: relative;
+    left: 25%;
+    right: 25%; 
+}
+#loginBody button{
+    background-color: black;
+    color: red;
+    font-weight: bold;
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+#loginBody button:hover{
+    background-color: red; 
+    color: black; 
+    transform: scale(1.05); 
+}
+#loginBody input{
+    margin: 10px 0;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    width: 95%; 
+    box-sizing: border-box;
+    background-color: rgba(50, 50, 50, 0.8);
+    color: red;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid red;
+}
+/* Styl do pliku kontakt.html */
+#kontaktBody{
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    padding: 20px;  
+}
+#kontaktBody h1{
+    text-align: center;
+    color: red;
+    margin-bottom: 20px;
+}
+#konKontener{
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    background-color: rgba(50, 50, 50, 0.8); 
+    padding: 20px;
+}
+#konKontener label{
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+    color: darkgray;
+}
+#konKontener input[type='file']{
+    color: red;
+    margin: 5px;
+}
+textarea{
+    resize:none;
+}
+#kontaktBody button{
+    background-color: black;
+    color: red;
+    font-weight: bold;
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+#kontaktBody button:hover{
+    background-color: red; 
+    color: black; 
+    transform: scale(1.05); 
+}
+#logout{
+    background-color: black;
+    color: red;
+    font-weight: bold;
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+#logout:hover{
+    background-color: red; 
+    color: black; 
+    transform: scale(1.05); 
+}
+#secondError{
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    background-color: rgba(255, 0, 0, 0.8); 
+    padding: 20px;
+}
+#secondError h1{
+    color: black;
+}
+
+#logoutDoOknoWyboru:hover{
+    background-color: red; 
+    color: black; 
+    transform: scale(1.05); 
+}
+#logoutDoOknoWyboru{
+    background-color: black;
+    color: red;
+    font-weight: bold;
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+#logoutDoOknoWyboru {
+    position: absolute;
+    bottom: -50%;
+    left: 41%;  
+    padding: 10px 20px;
+}
+.box {  
+    text-align: center;
+    line-height: 100px; 
+    position: relative; 
+    margin: 50px auto;  
+}
+#zdjecie{
+    width: 75px;
+    height: 75px;
+    border: 1px solid red;
+    float: right;
+    position: relative;
+    right: 10%;
+    bottom: 45px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

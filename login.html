@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Logowanie</title>
+    <script src="javascript.js"></script>
+</head>
+<body id="loginBody">
+    <div id="logContainer">
+        <div id="logLewy">
+            <div id="logRejestr">
+                <h2>Logowanie</h2>
+                <form id="logMyForm" action="login" method="POST">
+                    <input type="text" placeholder="Nazwa użytkownika" name="userName" required />
+                    <input type="email" placeholder="JanKowalski@gmail.com" id="register-email" name="email" required>
+                    <input type="password" placeholder="Hasło" name="password" required />
+                    <button type="submit" id="buttonLogin">Zaloguj się</button>
+                    <br><br>
+                    <div id="ErrorsDiv"></div>
+                </form>
+            </div>
+        </div>
+        <div id="logPrawy">
+            <button type="submit" id="register">Zarejestruj się</button>
+        </div>
+        <div id="erordiv"></div>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    document.getElementById('register').onclick = function () {
+        location.href = "register.html";
+    }
+</script>

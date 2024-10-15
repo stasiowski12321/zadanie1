@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista</title>
+    <script src="javascript.js"></script>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+        }
+
+        table {
+            margin: auto; 
+            border-collapse: collapse; 
+            width: 80%;
+            max-width: 800px
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            transform: scale(1.02);
+            background-color: #ccc;
+            font-weight: bold;
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body id="listaBody">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Email</th>
+                <th>Wiadomość</th>
+                <th>Nazwa zdjęćia</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+</body>
+</html>
