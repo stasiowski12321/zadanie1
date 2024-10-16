@@ -4,85 +4,82 @@ document.addEventListener('DOMContentLoaded', function () {
     logout();
     kontakt();
     dodajKolejne();
-    loadData();
     imageLoader();
 })
 
 // skrypt do rejestracji
-        function register(){
-            var regMyForm = document.getElementById("regMyForm");
-            if(regMyForm){
-                regMyForm.addEventListener('submit', function() {
-        
-                    const loginRegex = /^[a-zA-Z]+$/;
-                    const emailRegex = /^[a-zA-Z]+(\d+)?(\.[a-zA-Z]+)?@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-                    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
-                
-                    const registerLogin = document.getElementById('register-login');
-                    const registerEmail = document.getElementById('register-email');
-                    const registerPassword = document.getElementById('register-password');
-                    const registerPasswordPassword = document.getElementById('register-password-password');
-                    const registerErrorContainer = document.getElementById('register-error-container');
-        
-                    registerErrorContainer.innerHTML = '';
-        
-                    let error = true;
-        
-                    if(registerPassword.value == registerPasswordPassword.value){
-                        if(!loginRegex.test(registerLogin.value)){
-                            const divError = document.createElement('div');
-                            divError.textContent = "Nieprawidłowy login.";
-                            registerErrorContainer.appendChild(divError);
-                            error = false;
-                        }
-                        if (!emailRegex.test(registerEmail.value)) {
-                            const divError = document.createElement('div');
-                            divError.textContent = "js Nieprawidłowy adres e-mail.";
-                            registerErrorContainer.appendChild(divError);
-                            error = false;
-                        }
-                        if (!passwordRegex.test(registerPassword.value)) {
-                            const divError = document.createElement('div');
-                            divError.textContent = "Hasło musi mieć co najmniej 8 znaków, zawierać wielką literę, cyfrę i znak specjalny.";
-                            registerErrorContainer.appendChild(divError);
-                            error = false;
-                        }
-        
-                    }
-                    else{
-                        const divError = document.createElement('div');
-                        divError.textContent = "Hasła muszą być takie same!!!";
-                        registerErrorContainer.appendChild(divError);
-                        error = false;
-                    }
-        
-                    if(error){
-                        const formData = new FormData(document.getElementById('regMyForm'));
-                        
-                        fetch('register.php',{
-                            method: 'POST',
-                            body: formData
-                        })
-                        .then(response =>{
-                            if(!response.ok){
-                                alert("Wystąpił błąd po stronie serwera.");
-                            }
-                            return response.json()
-                        })
-                        .then(data => {
-                            console.log(data);
-                            if(data.status === 'success'){
-                                location.href = "login.html";
-                            }
-                            else{
-                                console.log(data.message);
-                            }
-                            alert("Witaj na Stronie: "+data.email);
-                        })
-                    }
-                })   
+function register() {
+    var regMyForm = document.getElementById("regMyForm");
+    if (regMyForm) {
+        regMyForm.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const loginRegex = /^[a-zA-Z]+$/;
+            const emailRegex = /^[a-zA-Z]+(\d+)?(\.[a-zA-Z]+)?@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_/])[A-Za-z\d!@#$%^&*_]{8,}$/;
+
+            const registerLogin = document.getElementById('register-login');
+            const registerEmail = document.getElementById('register-email');
+            const registerPassword = document.getElementById('register-password');
+            const registerPasswordPassword = document.getElementById('register-password-password');
+            const registerErrorContainer = document.getElementById('register-error-container');
+
+            registerErrorContainer.innerHTML = '';
+
+            let error = true;
+
+            if (registerPassword.value === registerPasswordPassword.value) {
+                if (!loginRegex.test(registerLogin.value)) {
+                    const divError = document.createElement('div');
+                    divError.textContent = "Nieprawidłowy login.";
+                    registerErrorContainer.appendChild(divError);
+                    error = false;
+                }
+                if (!emailRegex.test(registerEmail.value)) {
+                    const divError = document.createElement('div');
+                    divError.textContent = "Nieprawidłowy adres e-mail.";
+                    registerErrorContainer.appendChild(divError);
+                    error = false;
+                }
+                if (!passwordRegex.test(registerPassword.value)) {
+                    const divError = document.createElement('div');
+                    divError.textContent = "Hasło musi mieć co najmniej 8 znaków, zawierać wielką literę, cyfrę i znak specjalny.";
+                    registerErrorContainer.appendChild(divError);
+                    error = false;
+                }
+            } else {
+                const divError = document.createElement('div');
+                divError.textContent = "Hasła muszą być takie same!!!";
+                registerErrorContainer.appendChild(divError);
+                error = false;
             }
-        }
+
+            if (error) {
+                const formData = new FormData(document.getElementById('regMyForm'));
+                
+                fetch('register.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        alert("Wystąpił błąd po stronie serwera.");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    if (data.status === 'success') {
+                        location.href = "login.html";
+                    } else {
+                        console.log(data.message);
+                    }
+                    alert("Witaj na Stronie: " + data.email);
+                });
+            }
+        });
+    }
+}
 
 
 // Skrypt do logowania
@@ -101,15 +98,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error("Wystąpił błąd po stronie serwera."); // Rzuć błąd
+                        throw new Error("Wystąpił błąd po stronie serwera."); 
                     }
-                    return response.json(); // Przetwarzaj odpowiedź jako JSON
+                    return response.json();
                 })
                 .then(data => {
                     console.log(data);
                     if (data.success) {
                         alert('Zostałeś pomyślnie zalogowany');
-                        location.href = "kontakt.html"; // Przekierowanie
+                        location.href = "kontakt.html";
                     } else {
                         alert("Niepoprawne dane do zalogowania");
                     }
@@ -258,23 +255,21 @@ function kontakt(){
     let currentPage = 0; 
 
     async function loadData() {
-        try {
+        const tableBody = document.getElementById('table-body');
+        if(tableBody)
+        {
+            try {
             const response = await fetch(`lista.php?page=${currentPage}`);
             if (!response.ok) {
                 alert("Błąd sieciowy");
                 return;
             }
-
+    
             const data = await response.json();
-            if (data.error) {
-                console.error(data.error);
-                alert(data.error);
-            } else if (data.length === 0) {
-                alert("Brak wyników.");
-            } else {
-                const tableBody = document.getElementById('table-body');
-                if(data && tableBody){
-                    data.forEach(item => {
+            console.log(data);
+            if (data.result.length > 0) {
+                if (tableBody) {
+                    data.result.forEach((item) => {
                         let zdjecie = item.src ? `<img src="zdjecia/${item.src}">` : "-";
                         const row = document.createElement('tr');
                         row.innerHTML = `
@@ -286,17 +281,28 @@ function kontakt(){
                             <td>${zdjecie}</td>
                         `;
                         tableBody.appendChild(row);
+    
+                        if (item.end === true) {
+                            var divEnd = document.createElement('div');
+                            divEnd.textContent = "To jest już cała lista";
+                            var endList = document.getElementById("endList");
+                            endList.style.display="block";
+                            endList.appendChild(divEnd);
+                            var dodajKolejne = document.getElementById('dodajKolejne');
+                            dodajKolejne.style.display = 'none';
+                        }   
                     });
-                    currentPage++; 
+                    currentPage++;
                 }
+            } else {
+                alert("Koniec listy.");
             }
         } catch (error) {
             console.error('Wystąpił błąd:', error);
             alert("Wystąpił błąd podczas ładowania danych.");
         }
-        
-        imageLoader();
     }
+}
     
 
 function imageLoader(){

@@ -1,9 +1,25 @@
 <?php
 include 'db.php';
 
-$limit = 5; // liczba wierszy do pobrania
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 0; // aktualna strona
-$offset = $page * $limit; // oblicz offset
+$limit = 5; 
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 0;
+$offset = $page * $limit;
+
+$countSql = "SELECT COUNT(*) as total FROM wiadomosci";
+$countResult = $conn->query($countSql);
+$totalRecords = $countResult->fetch_assoc()['total'];
+
+if ($totalRecords == 0) {
+    echo json_encode(['result' => [], 'totalRecords' => 0]);
+    $conn->close();
+    exit;
+}
+
+if ($offset >= $totalRecords) {
+    echo json_encode(['result' => [], 'totalRecords' => $totalRecords]);
+    $conn->close();
+    exit;
+}
 
 $sql = "SELECT 
             wiadomosci.id, 
@@ -25,13 +41,27 @@ $result = $conn->query($sql);
 $responses = []; 
 
 if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $responses[] = $row; 
-    }
-    echo json_encode($responses);
-} else {
-    echo json_encode([]);
+    $responses = $result->fetch_all(MYSQLI_ASSOC);
 }
+
+foreach ($responses as $index => $response) {
+
+    $response['end'] = false;
+
+
+    if ($offset + $index + 1 >= $totalRecords) {
+        $response['end'] = true; 
+    }
+
+    $responses[$index] = $response;
+}
+
+$data = [
+    'result' => $responses,
+    'totalRecords' => $totalRecords
+];
+
+echo json_encode($data);
 
 $conn->close();
 ?>
