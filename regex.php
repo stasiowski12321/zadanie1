@@ -8,4 +8,7 @@ function isString($string) {
 function isComment($string){
     return preg_match('/^[A-Za-z0-9\s-]+/',$string);
 }
+function isPassword($password){
+    return preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[A-Za-z\d!@#$%^&*_]{8,}$/', $password);
+}
 ?>
