@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Logowanie</title>
-    <script src="javascript.js"></script>
+    <script src="./plikijs/login.js" defer></script>
+    <script src="javascript.js" defer></script>
 </head>
 <body id="loginBody">
     <div id="logContainer">
         <div id="logLewy">
             <div id="logRejestr">
                 <h2>Logowanie</h2>
-                <form id="logMyForm" action="login" method="POST">
+                <form id="logMyForm" action="login.php" method="POST">
                     <input type="text" placeholder="Nazwa użytkownika" name="userName" required />
                     <input type="email" placeholder="JanKowalski@gmail.com" id="register-email" name="email" required>
                     <input type="password" placeholder="Hasło" name="password" required />
